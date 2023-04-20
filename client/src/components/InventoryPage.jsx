@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import bootstrap from "bootstrap";
 
 const InventoryPage = (props) => {
   const { products, setProducts } = props;
@@ -19,9 +20,15 @@ const InventoryPage = (props) => {
 
   return (
     <div>
-      <h1>My Warehouse</h1>
-      <p>The warehouse currently has {products.length} items.</p>
-      <table>
+      <div className="bg-dark pt-1 pb-2">
+        <h1 className="mt-4 d-flex justify-content-center text-primary">
+          My Warehouse
+        </h1>
+        <p className="mt-3 d-flex justify-content-center text-light">
+          The warehouse currently has {products.length} items.
+        </p>
+      </div>
+      <table className="table bg-dark text-light w-100 mt-5 rounded-3 table-bordered">
         <thead>
           <tr>
             <th>Item Name</th>
@@ -47,7 +54,12 @@ const InventoryPage = (props) => {
           })}
         </tbody>
       </table>
-      <Link to="/add/product">Add a new item</Link>
+      <Link
+        className="mt-3 d-flex justify-content-center fs-5"
+        to="/add/product"
+      >
+        Add a new item
+      </Link>
     </div>
   );
 };
